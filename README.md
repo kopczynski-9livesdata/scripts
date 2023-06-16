@@ -31,3 +31,9 @@ kubectl -n dotdata port-forward --address=0.0.0.0 service/interactive-computatio
 ```bash
 kubectl -n dotdata port-forward --address 0.0.0.0 service/interactive-computation-server-service 8443:8443
 ```
+
+# ICS CLI
+```bash
+kubectl -n dotdata exec -it "$(kubectl -n dotdata get pods -l component=interactive-computation-server -o name)" -- env | grep SECRET
+./trino --server https://stg-master.dot-data.net:8443 --insecure --user dotdata_internal_services_user_clfvds8ld000208mj5rxiduhl --extra-credential=access-type=service --extra-credential=secret='$1$43137$zWYsBpTf8eFvL6lf94O/S/' --catalog artifacts
+```
