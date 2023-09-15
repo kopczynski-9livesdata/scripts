@@ -13,7 +13,7 @@ kubectl -n dotdata logs -f --tail=10 "$(kubectl -n dotdata get pods -l component
 ## JMX
 ### web-api
 ```bash
-kubectl -n dotdata port-forward --address=0.0.0.0 service/interactive-computation-server-service 9875:9875
+kubectl -n dotdata port-forward --address=0.0.0.0 service/web-api 9875:9875
 ```
 
 ### process-manager
