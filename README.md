@@ -26,6 +26,17 @@ kubectl -n dotdata port-forward --address=0.0.0.0 service/process-manager 9874:9
 kubectl -n dotdata port-forward --address=0.0.0.0 service/interactive-computation-server-service 9876:9876
 ```
 
+## PostgreSQL Database for IntelliJ
+### 3.4 and after
+```bash
+kubectl -n dotdata port-forward --address localhost "$(kubectl -n dotdata get pods -l component=postgresql-patroni -o name)" 55432:5432
+```
+
+### 3.2 and before
+```bash
+kubectl -n dotdata port-forward --address localhost "$(kubectl -n dotdata get pods -l component=patroni1 -o name)" 55432:5432
+```
+
 ## Admin console
 ### ICS
 ```bash
