@@ -4,6 +4,11 @@
 kubectl -n dotdata logs -f --tail=10 "$(kubectl -n dotdata get pods -l component=web-api -o name)"
 ```
 
+### process-manager
+```bash
+kubectl -n dotdata logs -f --tail=10 "$(kubectl -n dotdata get pods -l component=process-manager -o name)"
+```
+
 ### ICS
 ```bash
 kubectl -n dotdata logs -f --tail=10 "$(kubectl -n dotdata get pods -l component=interactive-computation-server -o name)"
